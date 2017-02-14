@@ -1,0 +1,19 @@
+{% extends "page.html" %}
+
+{% block after_content %}
+<section class="projects">
+    {% for project in data.projects|sort(attribute='started', reverse=True) %}
+    <div class="section" id="{{project.slug}}">
+        <h2>
+            <a class="reference external" href="{{project.url}}">{{project.name}}</a>
+        </h2>
+        {% for badge in project.badges %}
+        <a class="reference external image-reference" href="{{badge.target}}">
+            <img alt="{{badge.alt}}" src="{{badge.image}}">
+        </a>
+        {% endfor %}
+        {{ project.content }}
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}
