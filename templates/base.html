@@ -120,6 +120,10 @@
           {% for name, link in LINKS %}
           <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
           {% endfor %}
+          {% if SHOW_DRAFTS %}
+          <li><hr/></li>
+          <li><a href="{{ SITEURL }}/drafts/">{{ _('Drafts') }}</a></li>
+          {% endif %}
         </ul>
       </nav>
       {% endif %}
